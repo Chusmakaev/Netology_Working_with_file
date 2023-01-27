@@ -1,5 +1,4 @@
-import os
-file_to_open = os.path.expanduser('cook_book.txt')
+from pprint import pprint
 with open('cook_book.txt', 'rt',) as f:
     meal = {}
     for line in f:
@@ -7,13 +6,13 @@ with open('cook_book.txt', 'rt',) as f:
         dish_count = int(f.readline())
         dish = []
         for i in range(dish_count):
-            abc = f.readline().strip()
+            abc = f.readline()
             ingredient_name, quantity, measure = abc.split(' | ')
-            dish.append({
-                'ingredient_name': ingredient_name,
-                'quantity': quantity,
-                'measure': measure
-            })
+            dish.append({'ingredient_name': ingredient_name,  'quantity': quantity, 'measure': measure})
         f.readline()
         meal[meal_name] = dish
-print(meal)
+pprint(meal)
+
+
+
+
